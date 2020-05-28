@@ -1,1 +1,6 @@
-theme: jekyll-theme-slate
+remote_theme: "mmistakes/minimal-mistakes@4.19.2"
+title: "Web-Overlay"
+description: "A toolkit for constructing Web-based Overlay Networks"
+logo: images/topo.png
+plugins:
+  - jekyll-include-cache

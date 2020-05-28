@@ -1,76 +1,66 @@
-# Web-Overlay
-
+---
+layout: home
+title: Web-Overlay
+---
 ![topology](images/topo.png)
 
-Table of Contents
-=================
+# Overview
 
-* [Overview](#overview)
-* [Build](#build)
-* [Documents](#documents)
-* [Play with Demo](#play-with-demo)
-  * [Start an initial node](#start-an-initial-node)
-  * [Join your Web browser](#join-your-web-browser)
-* [Screenshots](#screenshots)
-  * [Finger tables](#finger-tables)
-  * [Connections](#connections)
-  * [Topology](#topology)
-  * [Primitive Chat](#primitive-chat)
-* [Kirin](#kirin)
-* [DDLL](#ddll)
-* [References](#references)
-* [License](#license)
-* [Acknowledgements](#acknowledgements)
-  
-## Overview
-*Web-Overlay* is a software for Web-based overlay network,
-where each node (peer) is either a Web browser or a Node.js.
-WebRTC and WebSocket (actually [Socket.io](https://socket.io/)) connections are used for interconnect.   
-  
-Web-Overlay includes a connection manager and structured overlay network, *Kirin*.
+*Web-Overlay* is a toolkit for constructing Web-based overlay network,
+where each node (peer) is either a Web browser or a Node.js.  WebRTC
+and WebSocket (actually [Socket.io](https://socket.io/)) connections
+are used for interconnect.
+
+Web-Overlay includes *Connection Manager* and structured overlay
+network, *Kirin*.
 
 Web-Overlay is developed by Kota Abe's research group at Osaka City University
 [[Link](https://www.media.osaka-cu.ac.jp/~k-abe/)].
 
-This software is quite experimental and not for production use.
+This software is in the early stage of development.
 
-## License
+# License
 GNU General Public License 3.0.
 
-## Build
-You need a Node.js installed on your computer.  
+# Repository
+[https://github.com/abelab/web-overlay](https://github.com/abelab/web-overlay)
 
-Get the source code (This software is not yet exported as a npm package).
+# Documentation
 
-```
+Currently no documentation is available.
+
+
+# Build
+You need a Node.js installed on your computer.
+
+Get the source code from github (as this software is not yet exported
+as an npm package).
+
+```bash
 git clone https://github.com/abelab/web-overlay.git
 ```
 
-Install [lerna](https://lerna.js.org/) locally. 
-```
+Install [lerna](https://lerna.js.org/) locally.
+```bash
 cd web-overlay
 npm install
 ```
 
 Fetch dependencies
-```
+```bash
 npx lerna bootstrap
 ```
 
 Transpile from TypeScript
-```
+```bash
 npx lerna run build
 ```
 
-## Documents
-
-Not yet available!
-
-## Play with Demo
+# Play with Demo
 
 In the following setup, all nodes must be on the same host.
 
-### Start an initial node
+## Start an initial node
 
 Initial node (the first node of the overlay network) must be a Node.js node.
 
@@ -99,7 +89,7 @@ Command list: status, leave, quit, enable, disable
 Prompt>
 ```
 
-### Join your Web browser 
+## Join your Web browser 
 
 Access to http://localhost:8080 with your Web browser. 
 Enter some key and push Join button.  If everything goes well,
@@ -108,40 +98,42 @@ You can join multiple browsers (or multiple windows/tabs) to the network.
 
 ![Initial Page](images/initial.png "Initial Page")
 
-## Screenshots
-Click items on the cyan stripe to show some information.  
+There are several menus on the cyan stripe.
 
 ### Finger tables
-![Finger Tables](images/fingertable.png "Finger Table")
+<img src="{{site.baseurl}}/images/fingertable.png" alt="Finger Table" class="capture"/>
 
 ### Connections 
-![Connections](images/connections.png "Connections")
+<img src="{{site.baseurl}}/images/connections.png" alt="Connections" class="capture"/>
 
 ### Topology
-![Topology](images/topology.png "Topology")
+<img src="{{site.baseurl}}/images/topology.png" alt="Topology" class="capture"/>
 
 ### Primitive Chat
-![Chat](images/chat.png "Chat")
+<img src="{{site.baseurl}}/images/chat.png" alt="Chat" class="capture"/>
 
-## Kirin
+# Kirin
 Web-Overlay includes an implementation of *Kirin* structured overlay network.
 
-Kirin is a class of key-order preserving structured overlay network (KOPSON).
-In Kirin, each node has a unique key.
-You can send a message to a node by specifying a key (unicast)
-and also to set of nodes by specifing a key range (multicast or range query). 
+Kirin is a key-order preserving structured overlay network (KOPSON).
+In Kirin, each node has a unique key.  You can send a message to a
+node by specifying a key (unicast) and also to a set of nodes by
+specifing a key range (multicast or range query).
 
-Kirin is a ring-based overlay network, and based on *Suzaku* structured overlay network, which is based on *Chord#*.
+Kirin is a ring-based overlay network, and based on *Suzaku*
+structured overlay network, which is based on *Chord#*.
 
-## DDLL
-Kirin uses a modified version of DDLL algorithm for managing a distributed, doubly-linked ring
-structure.  DDLL supports node insertion, deletion and failure recovery.
-This DDLL implementation is also included in Web-Overlay. 
+# DDLL 
+
+Kirin uses a modified version of DDLL algorithm for managing
+distributed doubly-linked ring structure.  DDLL supports node
+insertion, deletion and failure recovery.  This DDLL implementation is
+also included in Web-Overlay.
 
 ![DDLL logo](images/ddll-small.png)
 
-## References
-<dl>   
+# References
+<dl>
 <dt>Suzaku</dt>
 <dd>Kota Abe and Yuuichi Teranishi: "Suzaku: A Churn Resilient and Lookup-Efficient Key-Order Preserving Structured Overlay Network".
 <a href="https://search.ieice.org/bin/summary.php?id=e102-b_9_1885&category=B&year=2019&lang=E">[Link1]</a>
@@ -160,5 +152,5 @@ This DDLL implementation is also included in Web-Overlay.
 </dd>
 </dl>
 
-## Acknowledgements
+# Acknowledgements
 This work was supported by JSPS KAKENHI Grant Number 16K00135.
