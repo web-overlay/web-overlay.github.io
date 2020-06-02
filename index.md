@@ -6,18 +6,17 @@ title: Web-Overlay
 
 # Overview
 
-*Web-Overlay* is a toolkit for constructing Web-based overlay network,
-where each node (peer) is either a Web browser or a Node.js.  WebRTC
-and WebSocket (actually [Socket.io](https://socket.io/)) connections
-are used for interconnect.
+*Web-Overlay* is an experimental toolkit for constructing Web-based
+overlay networks, where each node (peer) is either a Web browser or a
+Node.js.  WebRTC and WebSocket (actually
+[Socket.io](https://socket.io/)) connections are used as an
+interconnect between nodes.
 
-Web-Overlay includes *Connection Manager* and structured overlay
-network, *Kirin*.
+Web-Overlay includes implementation of *Connection Manager* and
+a structured overlay network, *Kirin*.
 
-Web-Overlay is developed by Kota Abe's research group at Osaka City University
+Web-Overlay is developed by Abe Lab at Osaka City University, Japan
 [[Link](https://www.media.osaka-cu.ac.jp/~k-abe/)].
-
-This software is in the early stage of development.
 
 # License
 GNU General Public License 3.0.
@@ -62,15 +61,16 @@ In the following setup, all nodes must be on the same host.
 
 ## Start an initial node
 
-Initial node (the first node of the overlay network) must be a Node.js node.
+The initial node (the first node of the overlay network) must be a
+Node.js node.
 
 ```bash
 cd web-overlay/packages/demo
 env DEPLOYMENT=localhost8080-initial npm run portal
 ```
 
-Note: `./config/deployment/localhost8080-initial.json` is
-used as a configuration file.  
+This command starts the initial node based on the configuration
+`./config/deployment/localhost8080-initial.json`.
 
 Your initial node will start listening on http://localhost:8080.
 
@@ -89,10 +89,10 @@ Command list: status, leave, quit, enable, disable
 Prompt>
 ```
 
-## Join your Web browser 
+## Join your Web browser
 
-Access to http://localhost:8080 with your Web browser. 
-Enter some key and push Join button.  If everything goes well,
+Access to http://localhost:8080 with your Web browser.
+Enter some key (string) and push Join button.  If everything goes well,
 your browser will join the overlay network.
 You can join multiple browsers (or multiple windows/tabs) to the network.
 
@@ -103,7 +103,7 @@ There are several menus on the cyan stripe.
 ### Finger tables
 <img src="{{site.baseurl}}/images/fingertable.png" alt="Finger Table" class="capture"/>
 
-### Connections 
+### Connections
 <img src="{{site.baseurl}}/images/connections.png" alt="Connections" class="capture"/>
 
 ### Topology
@@ -118,16 +118,16 @@ Web-Overlay includes an implementation of *Kirin* structured overlay network.
 Kirin is a key-order preserving structured overlay network (KOPSON).
 In Kirin, each node has a unique key.  You can send a message to a
 node by specifying a key (unicast) and also to a set of nodes by
-specifing a key range (multicast or range query).
+specifying a key range (multicast or range query).
 
-Kirin is a ring-based overlay network, and based on *Suzaku*
+Kirin is a ring-based overlay network and based on *Suzaku*
 structured overlay network, which is based on *Chord#*.
 
-# DDLL 
+# DDLL
 
 Kirin uses a modified version of DDLL algorithm for managing
 distributed doubly-linked ring structure.  DDLL supports node
-insertion, deletion and failure recovery.  This DDLL implementation is
+insertion, deletion, and failure recovery.  This DDLL implementation is
 also included in Web-Overlay.
 
 ![DDLL logo](images/ddll-small.png)
@@ -137,10 +137,10 @@ also included in Web-Overlay.
 <dt>Suzaku</dt>
 <dd>Kota Abe and Yuuichi Teranishi: "Suzaku: A Churn Resilient and Lookup-Efficient Key-Order Preserving Structured Overlay Network".
 <a href="https://search.ieice.org/bin/summary.php?id=e102-b_9_1885&category=B&year=2019&lang=E">[Link1]</a>
-<a href="https://dlisv03.media.osaka-cu.ac.jp/il/meta_pub/G0000438repository_07451345-e102.b-9-1885">[Link2]</a>, 
+<a href="https://dlisv03.media.osaka-cu.ac.jp/il/meta_pub/G0000438repository_07451345-e102.b-9-1885">[Link2]</a>,
 </dd>
 <dt>Chord#</dt>
-<dd>Thorsten Schü̈tt, Florian Schintke and Alexander Reinefeld: 
+<dd>Thorsten Schütt, Florian Schintke and Alexander Reinefeld:
 "Range queries on structured overlay networks".
 <a href="https://www.sciencedirect.com/science/article/abs/pii/S0140366407003258">[Link]</a>
 </dd>
@@ -154,3 +154,6 @@ also included in Web-Overlay.
 
 # Acknowledgements
 This work was supported by JSPS KAKENHI Grant Number 16K00135.
+
+<!-- Local Variables: -->
+<!-- coding: utf-8 -->
