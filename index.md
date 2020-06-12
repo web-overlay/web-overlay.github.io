@@ -89,7 +89,7 @@ The initial node (the first node of the overlay network) must be a
 Node.js node.
 
 ```bash
-% cd web-overlay/packages/demo
+% cd packages/demo
 % env DEPLOYMENT=localhost8080-initial npm run portal
 ```
 
