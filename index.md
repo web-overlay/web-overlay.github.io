@@ -1,8 +1,32 @@
 ---
 layout: home
 title: Web-Overlay
+classes: wide
 ---
 ![topology](images/topo.png)
+
+# Table of Contents
+
+{::options parse_block_html="true" /}
+<div id="toc">
+* [Overview](#overview)
+* [License](#license)
+* [Repository](#repository)
+* [Documentation](#documentation)
+* [Build](#build)
+* [Play with Demo](#play-with-demo)
+  * [Start an initial node](#start-an-initial-node)
+  * [Join your Web browser](#join-your-web-browser)
+    * [Finger tables](#finger-tables)
+    * [Connections](#connections)
+    * [Topology](#topology)
+    * [Primitive Chat](#primitive-chat)
+* [Kirin](#kirin)
+* [DDLL](#ddll)
+* [References](#references)
+* [Acknowledgements](#acknowledgements)
+</div>
+{::options parse_block_html="false" /}
 
 # Overview
 
@@ -26,33 +50,33 @@ GNU General Public License 3.0.
 
 # Documentation
 
-Currently no documentation is available.
-
+Documentations are being prepared.
 
 # Build
-You need a Node.js installed on your computer.
+You need a Node.js installed on your computer.  (We are using Node.js
+v12.16.xx for now.)
 
 Get the source code from github (as this software is not yet exported
 as an npm package).
 
 ```bash
-git clone https://github.com/abelab/web-overlay.git
+% git clone https://github.com/abelab/web-overlay.git
 ```
 
 Install [lerna](https://lerna.js.org/) locally.
 ```bash
-cd web-overlay
-npm install
+% cd web-overlay
+% npm install
 ```
 
 Fetch dependencies
 ```bash
-npx lerna bootstrap
+% npx lerna bootstrap
 ```
 
 Transpile from TypeScript
 ```bash
-npx lerna run build
+% npx lerna run build
 ```
 
 # Play with Demo
@@ -65,8 +89,8 @@ The initial node (the first node of the overlay network) must be a
 Node.js node.
 
 ```bash
-cd web-overlay/packages/demo
-env DEPLOYMENT=localhost8080-initial npm run portal
+% cd web-overlay/packages/demo
+% env DEPLOYMENT=localhost8080-initial npm run portal
 ```
 
 This command starts the initial node based on the configuration
@@ -98,7 +122,7 @@ You can join multiple browsers (or multiple windows/tabs) to the network.
 
 ![Initial Page](images/initial.png "Initial Page")
 
-There are several menus on the cyan stripe.
+There are several links on the cyan stripe.
 
 ### Finger tables
 <img src="{{site.baseurl}}/images/fingertable.png" alt="Finger Table" class="capture"/>
@@ -120,33 +144,39 @@ In Kirin, each node has a unique key.  You can send a message to a
 node by specifying a key (unicast) and also to a set of nodes by
 specifying a key range (multicast or range query).
 
-Kirin is a ring-based overlay network and based on *Suzaku*
-structured overlay network, which is based on *Chord#*.
+Kirin is a ring-based overlay network and based on [*Suzaku*
+structured overlay network](#suzakuref), which is based on
+[*Chord#*](#chordsharpref).
 
 # DDLL
 
-Kirin uses a modified version of DDLL algorithm for managing
+![DDLL logo](images/ddll-small.png)
+
+Kirin uses a modified version of [DDLL algorithm](#ddllref) for managing
 distributed doubly-linked ring structure.  DDLL supports node
 insertion, deletion, and failure recovery.  This DDLL implementation is
 also included in Web-Overlay.
 
-![DDLL logo](images/ddll-small.png)
-
 # References
 <dl>
-<dt>Suzaku</dt>
-<dd>Kota Abe and Yuuichi Teranishi: "Suzaku: A Churn Resilient and Lookup-Efficient Key-Order Preserving Structured Overlay Network".
+<dt id="suzakuref">Suzaku</dt>
+<dd>Kota Abe and Yuuichi Teranishi: "Suzaku: A Churn Resilient and
+Lookup-Efficient Key-Order Preserving Structured Overlay Network",
+IEICE Transactions on Communications, Vol. E102–B, No. 9,
+pp. 1885-1894, 2019.
 <a href="https://search.ieice.org/bin/summary.php?id=e102-b_9_1885&category=B&year=2019&lang=E">[Link1]</a>
-<a href="https://dlisv03.media.osaka-cu.ac.jp/il/meta_pub/G0000438repository_07451345-e102.b-9-1885">[Link2]</a>,
+<a href="https://dlisv03.media.osaka-cu.ac.jp/il/meta_pub/G0000438repository_07451345-e102.b-9-1885">[Link2]</a>
 </dd>
-<dt>Chord#</dt>
+<dt id="chordsharpref">Chord#</dt>
 <dd>Thorsten Schütt, Florian Schintke and Alexander Reinefeld:
-"Range queries on structured overlay networks".
+"Range queries on structured overlay networks",
+Computer Communications, Vol. 31, No. 2, pp.358-374, 2008.
 <a href="https://www.sciencedirect.com/science/article/abs/pii/S0140366407003258">[Link]</a>
 </dd>
-<dt>DDLL</dt>
-<dd>Kota Abe and Mikio Yoshida:
-"Constructing Distributed Doubly Linked Lists without Distributed Locking".
+<dt id="ddllref">DDLL</dt>
+<dd>Kota Abe and Mikio Yoshida: "Constructing Distributed Doubly
+Linked Lists without Distributed Locking", In Proceeding of the IEEE
+International Conference on Peer-to-Peer Computing 2015 (P2P 2015), 2015.
 <a href="https://ieeexplore.ieee.org/document/7328521">[Link1]</a>
 <a href="http://www.media.osaka-cu.ac.jp/~k-abe/research/Constructing_Distributed_Doubly_Linked_Lists_without_Distributed_Locking.html">[Link2]</a>
 </dd>
@@ -154,6 +184,10 @@ also included in Web-Overlay.
 
 # Acknowledgements
 This work was supported by JSPS KAKENHI Grant Number 16K00135.
+
+<div style="text-align: right;">
+Last updated: Fri Jun 12 13:18:15 JST 2020
+</div>
 
 <!-- Local Variables: -->
 <!-- coding: utf-8 -->
