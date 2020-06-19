@@ -19,8 +19,8 @@ interconnect between nodes.
 Web-Overlay includes implementation of *Connection Manager* and a
 structured overlay network, *Kirin*.  It also includes:
 
-- a very simple, CUI-based [unstructured overlay network](#sample-program), and
-- a [demo program](#play-with-demo) that runs on a Web browsers and Node.js.
+- a very simple, CUI-based [unstructured overlay network](#simple-cui-based-unstructured-overlay-network), and
+- a [demo program](#web-based-demo-program) that runs on a Web browsers and Node.js.
 
 Web-Overlay is developed by Abe Lab at Osaka City University, Japan
 [[Link](https://www.media.osaka-cu.ac.jp/~k-abe/)].
