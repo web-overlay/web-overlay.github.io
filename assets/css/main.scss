@@ -13,7 +13,7 @@ img {
 }
 
 * {
-    text-align: justify;
+    text-align: left;
 }
 
 .capture {
@@ -24,6 +24,18 @@ img {
     margin-bottom: 0;
 }
 
-#toc li ul {
-    margin-top: 0;
+h1 {
+    border-top: solid 1px #e0e0e0;
+    padding-top: 1ex;
 }
+
+h1, h2, h3 {
+    margin-top: 1ex;
+}
+
+p {
+    margin-block-start: 0px;
+    margin-block-end: 0.5em;
+    margin-bottom: 0.5em !important;
+}
+

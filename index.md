@@ -1,32 +1,12 @@
 ---
-layout: home
+layout: single
 title: Web-Overlay
 classes: wide
+toc: true
+toc_label: Table of Contents
 ---
+
 ![topology](images/topo.png)
-
-# Table of Contents
-
-{::options parse_block_html="true" /}
-<div id="toc">
-* [Overview](#overview)
-* [License](#license)
-* [Repository](#repository)
-* [Documentation](#documentation)
-* [Build](#build)
-* [Play with Demo](#play-with-demo)
-  * [Start an initial node](#start-an-initial-node)
-  * [Join your Web browser](#join-your-web-browser)
-    * [Finger tables](#finger-tables)
-    * [Connections](#connections)
-    * [Topology](#topology)
-    * [Primitive Chat](#primitive-chat)
-* [Kirin](#kirin)
-* [DDLL](#ddll)
-* [References](#references)
-* [Acknowledgements](#acknowledgements)
-</div>
-{::options parse_block_html="false" /}
 
 # Overview
 
@@ -36,8 +16,11 @@ Node.js.  WebRTC and WebSocket (actually
 [Socket.io](https://socket.io/)) connections are used as an
 interconnect between nodes.
 
-Web-Overlay includes implementation of *Connection Manager* and
-a structured overlay network, *Kirin*.
+Web-Overlay includes implementation of *Connection Manager* and a
+structured overlay network, *Kirin*.  It also includes:
+
+- a very simple, CUI-based [unstructured overlay network](#sample-program), and
+- a [demo program](#play-with-demo) that runs on a Web browsers and Node.js.
 
 Web-Overlay is developed by Abe Lab at Osaka City University, Japan
 [[Link](https://www.media.osaka-cu.ac.jp/~k-abe/)].
@@ -48,15 +31,11 @@ GNU General Public License 3.0.
 # Repository
 [https://github.com/abelab/web-overlay](https://github.com/abelab/web-overlay)
 
-# Documentation
-
-Documentations are being prepared.
-
 # Build
 You need a Node.js installed on your computer.  (We are using Node.js
 v12.16.xx for now.)
 
-Get the source code from github (as this software is not yet exported
+Get the source code from GitHub (as this software is not yet exported
 as an npm package).
 
 ```bash
@@ -79,11 +58,25 @@ Transpile from TypeScript
 % npx lerna run build
 ```
 
-# Play with Demo
+# Documentations
 
-In the following setup, all nodes must be on the same host.
+Detailed documentations are not available for now.  Please refer
+the source code of sample programs below.
 
-## Start an initial node
+# Sample Programs
+
+## Simple CUI-based unstructured overlay network
+
+`packages/unstructured` directory contains an implementation of a very
+simple unstructured overlay network.  Please visit [this
+page](unstructured-sample.html) for further information.
+
+## Web-based demo program
+
+`packages/demo` directory contains a Web-based demo program, powered
+by [Vue.js](https://vuejs.org).
+
+### Start an initial node
 
 The initial node (the first node of the overlay network) must be a
 Node.js node.
@@ -93,8 +86,8 @@ Node.js node.
 % env DEPLOYMENT=localhost8080-initial npm run portal
 ```
 
-This command starts the initial node based on the configuration
-`./config/deployment/localhost8080-initial.json`.
+This command starts the initial node based on the configuration file
+[./config/deployment/localhost8080-initial.json](https://github.com/abelab/web-overlay/blob/master/packages/demo/config/deployment/localhost8080-initial.json).
 
 Your initial node will start listening on http://localhost:8080.
 
@@ -113,27 +106,36 @@ Command list: status, leave, quit, enable, disable
 Prompt>
 ```
 
-## Join your Web browser
+### Join your Web browser
 
 Access to http://localhost:8080 with your Web browser.
-Enter some key (string) and push Join button.  If everything goes well,
+
+Enter some key (string) and push *Join* button.  If everything goes well,
 your browser will join the overlay network.
 You can join multiple browsers (or multiple windows/tabs) to the network.
+
+> Note: here we assume that you run your browser on the same computer
+> that runs the initial node.  If you want to run your browser on a
+> different computer, you have to configure your initial node to have
+> a proper URL.  Make a copy of `localhost8080-initial.json` and edit
+> MY_URL in the JSON file, then run the initial node with the new
+> configuration file.  E.g., ```env DEPLOYMENT=myhost8080-initial npm
+> run portal```.
 
 ![Initial Page](images/initial.png "Initial Page")
 
 There are several links on the cyan stripe.
 
-### Finger tables
+#### Finger tables
 <img src="{{site.baseurl}}/images/fingertable.png" alt="Finger Table" class="capture"/>
 
-### Connections
+#### Connections
 <img src="{{site.baseurl}}/images/connections.png" alt="Connections" class="capture"/>
 
-### Topology
+#### Topology
 <img src="{{site.baseurl}}/images/topology.png" alt="Topology" class="capture"/>
 
-### Primitive Chat
+#### Primitive Chat
 <img src="{{site.baseurl}}/images/chat.png" alt="Chat" class="capture"/>
 
 # Kirin
@@ -186,7 +188,7 @@ International Conference on Peer-to-Peer Computing 2015 (P2P 2015), 2015.
 This work was supported by JSPS KAKENHI Grant Number 16K00135.
 
 <div style="text-align: right;">
-Last updated: Fri Jun 12 13:18:15 JST 2020
+Fri Jun 19 16:39:46 JST 2020
 </div>
 
 <!-- Local Variables: -->
