@@ -35,7 +35,7 @@ GNU General Public License 3.0.
 You need a Node.js installed on your computer.  (We are using Node.js
 v12.16.xx for now.)
 
-Get the source code from GitHub (as this software is not yet exported
+Get the source code from GitHub (as this software is not yet published
 as an npm package).
 
 ```bash
@@ -115,12 +115,12 @@ your browser will join the overlay network.
 You can join multiple browsers (or multiple windows/tabs) to the network.
 
 > Note: here we assume that you run your browser on the same computer
-> that runs the initial node.  If you want to run your browser on a
-> different computer, you have to configure your initial node to have
-> a proper URL.  Make a copy of `localhost8080-initial.json` and edit
-> MY_URL in the JSON file, then run the initial node with the new
-> configuration file.  E.g., ```env DEPLOYMENT=myhost8080-initial npm
-> run portal```.
+> that runs the initial node.  If you want to allow browsers on a
+> different computer to join, you have to configure your initial node
+> to have a proper URL.  Make a copy of `localhost8080-initial.json`
+> in the same directory and edit MY_URL in the JSON file, then run the
+> initial node with the new configuration file.  E.g., ```env
+> DEPLOYMENT=myhost8080-initial npm run portal```.
 
 ![Initial Page](images/initial.png "Initial Page")
 
@@ -188,7 +188,7 @@ International Conference on Peer-to-Peer Computing 2015 (P2P 2015), 2015.
 This work was supported by JSPS KAKENHI Grant Number 16K00135.
 
 <div style="text-align: right;">
-Fri Jun 19 16:39:46 JST 2020
+Fri Jun 19 20:50:48 JST 2020
 </div>
 
 <!-- Local Variables: -->
